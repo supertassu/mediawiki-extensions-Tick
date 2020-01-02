@@ -1,0 +1,11 @@
+{
+  "@metadata": {
+	"authors": [
+	  "Taavi Väänänen"
+	]
+  },
+  "tick-desc": "Adds a tag that allows an user to \"tick\" it with current timestamp",
+  "tick-button": "Tick",
+  "tick-selected-button" : "Tick Selected",
+  "right-tick": "Use Tick"
+}

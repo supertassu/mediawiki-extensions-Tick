@@ -1,0 +1,64 @@
+{
+  "name": "Tick",
+  "author": [
+	"[https://mediawiki.org/wiki/User:Majavah Taavi Väänänen]"
+  ],
+  "url": "https://taavi.wtf/projects/mediawiki-extensions-tick",
+  "descriptionmsg": "tick-desc",
+  "version": "1.0.0",
+  "license-name": "MIT",
+  "type": "other",
+  "manifest_version": 1,
+  "AutoloadNamespaces": {
+	"MediaWiki\\Extension\\Tick\\": "includes/"
+  },
+  "ExtensionMessagesFiles": {
+	"TickMagic": "Tick.i18n.php"
+  },
+  "Hooks": {
+	"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\Tick\\TickExtension::onLoadExtensionSchemaUpdates",
+	"ParserFirstCallInit": "MediaWiki\\Extension\\Tick\\TickExtension::onParserFirstCallInit"
+  },
+  "GroupPermissions": {
+	"autoconfirmed": {
+	  "tick": true
+	},
+	"sysop": {
+	  "tick": true
+	}
+  },
+  "GrantPermissions": {
+	"editpage": {
+	  "tick": true
+	}
+  },
+  "APIModules": {
+	"tick": "MediaWiki\\Extension\\Tick\\TickApi"
+  },
+  "APIPropModules": {
+	"tick": "MediaWiki\\Extension\\Tick\\TickQueryApi"
+  },
+  "AvailableRights": [
+	"tick"
+  ],
+  "MessagesDirs": {
+	"Tick": [
+	  "i18n",
+	  "i18n/api"
+	]
+  },
+  "ResourceModules": {
+	"ext.tick.tick": {
+	  "scripts": [
+		"ext.tick.js"
+	  ],
+	  "dependencies": [
+		"mediawiki.api"
+	  ]
+	}
+  },
+  "ResourceFileModulePaths": {
+	"localBasePath": "modules",
+	"remoteExtPath": "Tick/modules"
+  }
+}

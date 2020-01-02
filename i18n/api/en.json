@@ -1,0 +1,14 @@
+{
+  "@metadata": {
+	"authors": [
+	  "Taavi Väänänen"
+	]
+  },
+  "apihelp-tick-summary": "Tick a Tick",
+  "apihelp-tick-extended-description": "Tick a Tick in specific page",
+  "apihelp-tick-param-title": "Page title to Tick on",
+  "apihelp-tick-param-pageid": "Page id to Tick on",
+  "apihelp-tick-param-tickid": "Id given to Tick to Tick on",
+  "apihelp-query+tick-summary": "Fetch Tick data",
+  "apihelp-query+tick-extended-description": "Fetches all Ticks from database for selected pages"
+}
