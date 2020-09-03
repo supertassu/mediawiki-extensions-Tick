@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\Tick;
 use DatabaseUpdater;
 use Parser;
 use Sanitizer;
+use OOUI\ButtonWidget;
 
 /**
  * @author Taavi Väänänen <mailbox@taavi.wtf>
@@ -24,7 +25,7 @@ class TickExtension
 
 	public static function renderTickTag( Parser $parser, $id, $description = '' )
 	{
-		$parser->getOutput()->addModules(['ext.tick.tick']);
+		$parser->getOutput()->addModules([ 'ext.tick.tick' ]);
 
 		$id = htmlspecialchars(Sanitizer::escapeIdForAttribute($id));
 
@@ -36,9 +37,18 @@ class TickExtension
 
 	public static function renderSelectedTicksTag( Parser $parser )
 	{
-		$parser->getOutput()->addModules(['ext.tick.tick']);
+		$parser->getOutput()->addModules([ 'ext.tick.tick', 'ext.tick.tick-selected-ui', 'oojs-ui-core', 'oojs-ui-widgets' ]);
+        $parser->enableOOUI();
 
-		$output = '<button onclick="mw.tick.tickSelected()">' . wfMessage('tick-selected-button')->parse() . '</button>';
-		return [ $output, 'noparse' => true, 'isHTML' => true ];
+        $button = new ButtonWidget([
+        	'label' => wfMessage( 'tick-selected-button' )->text(),
+			'href' => '#',
+			'flags' => 'progressive',
+			'infusable' => true,
+		]);
+
+        $button->addClasses([ 'mwe-tick-btn-all' ]);
+
+		return [ $button->toString(), 'noparse' => true, 'isHTML' => true ];
 	}
 }
